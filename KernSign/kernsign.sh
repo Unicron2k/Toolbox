@@ -288,7 +288,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # Define list of arguments expected in the input
-optstring="hlpgedsa"
+optstring="hlpgeds:a:"
 while getopts ${optstring} opt; do
     case $opt in
     h)  # Display usage
