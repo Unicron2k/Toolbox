@@ -20,7 +20,7 @@ I got tired of manually enrolling keys and signing kernel-images. Other solution
 
 ## Usage
 ```
-Usage: kernsign.sh [-p] -hlgedsS
+Usage: kernsign.sh [-p] -hlgedsa
    -h            Display usage
    -l            List installed kernels
   [-p]           Preserve unsigned kernel
