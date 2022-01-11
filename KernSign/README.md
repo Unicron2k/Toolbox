@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Unicron2k/Toolbox/KernSign">
+  <a href="https://github.com/Unicron2k/Toolbox/tree/master/KernSign">
     <h1 align="center">KernSign</h3>
   </a>
 </p>
@@ -15,7 +15,7 @@
 #### Why I made this script
 I got tired of manually enrolling keys and signing kernel-images. Other solutions probably exists, but I wanted to make my own.
 
-> This script saves me multiple seconds multiple times per month!
+> This script saves me multiple seconds multiple times per month!  
 > &emsp;- Me
 
 ## Usage
@@ -32,9 +32,9 @@ Usage: kernsign.sh [-p] -hlgedsS
                  (equivalent to kernsign.sh -c -e -s [version] )
 ```
 ### Requirements:
- - openssl - Generate certificates
- - mokutil - Enroll certificate in MOK
- - sbsign  - Sign kernel-images
+ - openssl     - SSL-toolkit, generate certificates, keys and more
+ - mokutil     - Tools to manipulate Machine Owner Keys (MOK)
+ - sbsigntool  - Tools to manipulate signatures on UEFI binaries
 
 ### First-time usage:
 *IMPORTANT*: Remember to securely store your generated certificates (MOK.der, MOK.priv, MOK.pem) for future use.
@@ -58,13 +58,13 @@ Remember to enroll them in MOK with the `-e`-option.
 
 <!-- LICENSE -->
 ## License
-Subject to change.
-All code is distributed under the MIT License.
+Subject to change.  
+All code is distributed under the MIT License.  
 See [`LICENSE.txt`](LICENSE.txt) for more information.
 
 
 <!-- CONTACT -->
 ## Contact
 
-Mail: [UnicronDev@outlook.com](mailto:UnicronDev@outlook.com)
-Project Link: [https://github.com/Unicron2k/Toolbox/KernSign](https://github.com/Unicron2k/Toolbox/KernSign)
+Mail: [UnicronDev@outlook.com](mailto:UnicronDev@outlook.com)  
+Project Link: [https://github.com/Unicron2k/Toolbox/tree/master/KernSign](https://github.com/Unicron2k/Toolbox/tree/master/KernSign)
