@@ -27,9 +27,12 @@ Usage: kernsign.sh [-p] -hlgedsa
    -g            Generate certificates
    -e            Enroll certificates in MOK
    -d            Delete certificates from MOK
-   -s [version]  Sign kernel. Latest kernel wil be signed if no [version] specified
-   -a [version]  Generate certificates, enroll in MOK and sign specified version
-                 (equivalent to kernsign.sh -c -e -s [version] )
+   -s            Sign the latest kernel
+   -S [version]  Sign the kernel specified by [version]
+   -a            Generate certificates, enroll in MOK and sign lates version
+                 (equivalent to kernsign.sh -g -e -s )
+   -A [version]  Generate certificates, enroll in MOK and sign specified version
+                 (equivalent to kernsign.sh -g -e -S [version] )
 ```
 ### Requirements:
  - openssl     - SSL-toolkit, generate certificates, keys and more

@@ -2,16 +2,19 @@
 
 function usage {
         echo "Sign mainline Linux kernel images."
-        echo "Usage: $(basename "$0") [-p] -hlgedsa"
+        echo "Usage: $(basename "$0") [-p] -hlgedsSaA"
         echo "   -h            Display usage"
         echo "   -l            List installed kernels"
         echo "  [-p]           Preserve unsigned kernel"
         echo "   -g            Generate certificates"
         echo "   -e            Enroll certificates in MOK"
         echo "   -d            Delete certificates from MOK"
-        echo "   -s [version]  Sign kernel. Latest kernel wil be signed if no [version] specified"
-        echo "   -a [version]  Generate certificates, enroll in MOK and sign specified version"
-        echo "                 (equivalent to $(basename "$0") -g -e -s [version] )"
+        echo "   -s            Sign the latest kernel"
+        echo "   -S [version]  Sign the kernel specified by [version]"
+        echo "   -a            Generate certificates, enroll in MOK and sign lates version"
+        echo "                 (equivalent to $(basename "$0") -g -e -s )"
+        echo "   -A [version]  Generate certificates, enroll in MOK and sign specified version"
+        echo "                 (equivalent to $(basename "$0") -g -e -S [version] )"
         exit 1
 }
 
@@ -243,7 +246,7 @@ function execute(){
 function check_if_sudo(){
     if [ "$EUID" -ne 0 ]
     then
-        printlog "Please run as root."
+        printlog "KernSign must be run as root."
         exit
     fi
 }
@@ -288,7 +291,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # Define list of arguments expected in the input
-optstring="hlpgeds:a:"
+optstring="hlpgedsS:aA:"
 while getopts ${optstring} opt; do
     case $opt in
     h)  # Display usage
@@ -318,21 +321,35 @@ while getopts ${optstring} opt; do
         ;;
 
     s)  # Sign kernel
-        if [[ -v OPTARG ]]
-        then
-            KERNEL_VERSION=$OPTARG
-        fi
         SIGN_KERNEL=TRUE
         ;;
 
-    a)  # Generate certs, enroll in MOK, and sign kernel
+    S)  # Sign kernel
         if [[ -v OPTARG ]]
         then
             KERNEL_VERSION=$OPTARG
+            SIGN_KERNEL=TRUE
+        else
+            echo "No kernel version specified."
         fi
+        ;;
+
+    a)  # Generate certs, enroll in MOK, and sign kernel
         GENERATE_CERTS=TRUE
         ENROLL_MOK=TRUE
         SIGN_KERNEL=TRUE
+        ;;
+
+    A)  # Generate certs, enroll in MOK, and sign kernel
+        if [[ -v OPTARG ]]
+        then
+            KERNEL_VERSION=$OPTARG
+            GENERATE_CERTS=TRUE
+            ENROLL_MOK=TRUE
+            SIGN_KERNEL=TRUE
+        else
+            echo "No kernel version specified."
+        fi
         ;;
 
     \?) # Handle errors
