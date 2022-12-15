@@ -26,12 +26,13 @@ function sign_kernel(){
     if [ ! "$KERNEL_VERSION" ]
     then
         printlog "No kernel version specified, signing latest."
-        for filename in /boot/vmlinuz-*-generic
+        kernels=$(ls -1v /boot/vmlinuz-*-generic);
+        for kernel in $kernels
         do
-            filename=${filename#*-}
-            KERNEL_VERSION="${filename%-*}"
+            kernel=${kernel#*-}
+            KERNEL_VERSION="${kernel%-*}"
         done
-            printlog "Kernel to be signed: vmlinuz-$KERNEL_VERSION-generic"
+        printlog "Kernel to be signed: vmlinuz-$KERNEL_VERSION-generic"
     fi
 
     if [ -e "/boot/vmlinuz-$KERNEL_VERSION-generic" ]
@@ -206,10 +207,11 @@ function delete_mok(){
 
 function list_kernels(){
     printlog "installed kernel-versions:"
-    for filename in /boot/vmlinuz-*-generic
+    kernels=$(ls -1v /boot/vmlinuz-*-generic);
+    for kernel in $kernels
     do
-        filename=${filename#*-}
-        printlog "${filename%-*}"
+        kernel=${kernel#*-}
+        printlog "${kernel%-*}"
     done
 }
 
