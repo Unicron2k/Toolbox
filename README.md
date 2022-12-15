@@ -73,6 +73,8 @@ Please do not hesitate to share, fork and improve!
   <ul>
     <li><a href="KernSign/">KernSign</a> - Prepare and sign mainline Linux kernel-images for use with SecureBoot</li>
     <li><a href="OBttD/">OBttD</a> - Downloads the "Chief O'Brien at Work" web-comic</li>
+    <li><a href="FixUp/">FixUp</a> - Utilities for correcting bad settings and automating tasks</li>
+    <li><a href="Misc/">Misc.</a> - Miscellaneous scripts that doesn't really fit anywhere else...</li>
   </ul>
 </details>
 
