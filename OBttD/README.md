@@ -21,7 +21,7 @@ None existed, so I made one.
 > &emsp;- Family member
 
 
-<!-- CREADITS -->
+<!-- CREDITS -->
 ## Credits
 The webcomic itself is the work of the creator/author, Jon Adams, and is in no way affiliated with me or this project.  
 All credit, of course, goes to him for this series.
