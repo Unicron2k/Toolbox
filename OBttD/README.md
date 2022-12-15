@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Unicron2k/OBttD">
+  <a href="https://github.com/Unicron2k/Toolbox/OBttD">
     <h1 align="center">O'Brien to the Desktop</h3>
   </a>
 </p>
